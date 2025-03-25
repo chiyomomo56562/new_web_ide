@@ -1,4 +1,4 @@
-package com.new_web_ide.demo;
+package com.new_web_ide;
 
 import jakarta.persistence.EntityManager;
 import org.springframework.boot.SpringApplication;
@@ -6,8 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-
-import java.util.function.Supplier;
 
 @EnableJpaAuditing
 @SpringBootApplication
