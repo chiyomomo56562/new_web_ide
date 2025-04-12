@@ -17,7 +17,13 @@ pipeline {
             steps {
                 dir('frontend') {
                     sh '''
-                        npm config set node-options --openssl-legacy-provider
+                        # Node.js 버전 확인
+                        node -v
+                        
+                        # crypto polyfill 설치
+                        npm install crypto-browserify
+                        
+                        # 빌드 실행
                         npm install
                         npm run build
                     '''
