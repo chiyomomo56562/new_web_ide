@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FORM_INITIAL_VALUES } from '../constants/signup';
 import SignupService from '../service/signup/SignupService';
 import { useNavigate } from 'react-router-dom';
-import UserIdDupCheckService from '../service/signup/UserIdDupcheckService';
+import UserIdDupCheckService from '../service/signup/UserIdDupCheckService';
 import { SignupFormData } from '../types/auth/SignupFormData';
 
 export const useSignupForm = () => {
