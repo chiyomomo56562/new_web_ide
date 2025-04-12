@@ -34,8 +34,13 @@ pipeline {
         stage('Build Backend') {
             steps {
                 dir('backend') {
-                    sh 'npm install'
-                    sh 'npm run build'
+                    sh '''
+                        # Java 버전 확인
+                        java -version
+                        
+                        # Gradle 빌드 실행
+                        ./gradlew build
+                    '''
                 }
             }
         }
@@ -52,7 +57,7 @@ pipeline {
                     sh 'npm test'
                 }
                 dir('backend') {
-                    sh 'npm test'
+                    sh './gradlew test'
                 }
             }
         }
