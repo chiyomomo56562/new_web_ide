@@ -1,13 +1,13 @@
-from node:alpine
+FROM node:20-slim
 
 WORKDIR /app
 
-copy package.json ./
+COPY package*.json ./
 
-run npm install
+RUN npm install
 
-copy ./ ./
+COPY ./ ./
 
-expose 5173
+EXPOSE 5173
 
-cmd ["npm", "run", "dev"]
+CMD ["npm", "run", "dev"]

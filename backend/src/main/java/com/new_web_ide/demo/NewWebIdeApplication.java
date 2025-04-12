@@ -1,4 +1,4 @@
-package com.new_web_ide;
+package com.new_web_ide.demo;
 
 import jakarta.persistence.EntityManager;
 import org.springframework.boot.SpringApplication;
