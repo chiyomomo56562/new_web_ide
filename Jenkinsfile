@@ -4,7 +4,6 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'new_web_ide'
         DOCKER_TAG = "${BUILD_NUMBER}"
-        NODE_OPTIONS = '--openssl-legacy-provider'
     }
     
     stages {
@@ -18,7 +17,7 @@ pipeline {
             steps {
                 dir('frontend') {
                     sh '''
-                        export NODE_OPTIONS=--openssl-legacy-provider
+                        npm config set node-options --openssl-legacy-provider
                         npm install
                         npm run build
                     '''
