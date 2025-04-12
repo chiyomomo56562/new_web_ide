@@ -20,8 +20,8 @@ pipeline {
                         # Node.js 버전 확인
                         node -v
                         
-                        # crypto polyfill 설치
-                        npm install crypto-browserify
+                        # package.json 수정 - vite 버전 다운그레이드
+                        npm install vite@4.5.1 --save-dev
                         
                         # 빌드 실행
                         npm install
