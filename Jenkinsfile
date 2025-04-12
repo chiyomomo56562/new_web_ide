@@ -38,6 +38,9 @@ pipeline {
                         # Java 버전 확인
                         java -version
                         
+                        # gradlew 파일에 실행 권한 부여
+                        chmod +x ./gradlew
+                        
                         # Gradle 빌드 실행
                         ./gradlew build
                     '''
@@ -57,7 +60,13 @@ pipeline {
                     sh 'npm test'
                 }
                 dir('backend') {
-                    sh './gradlew test'
+                    sh '''
+                        # gradlew 파일에 실행 권한 부여
+                        chmod +x ./gradlew
+                        
+                        # Gradle 테스트 실행
+                        ./gradlew test
+                    '''
                 }
             }
         }
