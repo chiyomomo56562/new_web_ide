@@ -4,6 +4,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'new_web_ide'
         DOCKER_TAG = "${BUILD_NUMBER}"
+        NODE_OPTIONS = '--openssl-legacy-provider'
     }
     
     stages {
@@ -16,8 +17,12 @@ pipeline {
         stage('Build Frontend') {
             steps {
                 dir('frontend') {
-                    sh 'npm install'
-                    sh 'npm run build'
+                    nodejs(nodeJSInstallationName: 'NodeJS 16') {
+                        sh '''
+                            npm install
+                            npm run build
+                        '''
+                    }
                 }
             }
         }
