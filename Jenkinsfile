@@ -17,12 +17,11 @@ pipeline {
         stage('Build Frontend') {
             steps {
                 dir('frontend') {
-                    nodejs(nodeJSInstallationName: 'NodeJS 16') {
-                        sh '''
-                            npm install
-                            npm run build
-                        '''
-                    }
+                    sh '''
+                        export NODE_OPTIONS=--openssl-legacy-provider
+                        npm install
+                        npm run build
+                    '''
                 }
             }
         }
